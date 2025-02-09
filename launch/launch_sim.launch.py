@@ -57,9 +57,9 @@ def generate_launch_description():
     ros_gz_bridge = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
-        parameters=[
+        arguments=[
             '--ros-args',
-            'p',
+            '-p',
             f'config_file:={bridge_params}',
         ]
     )
