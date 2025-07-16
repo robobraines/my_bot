@@ -10,10 +10,7 @@ from launch.substitutions import LaunchConfiguration
 
 from launch_ros.actions import Node
 
-
-
 def generate_launch_description():
-
 
     # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
@@ -64,11 +61,18 @@ def generate_launch_description():
         ]
     )
 
+    ros_gz_image_bridge = Node(
+        package="ros_gz_image",
+        executable="image_bridge",
+        arguments=["/camera/image_raw"],
+    )
+
     # Launch them all!
     return LaunchDescription([
         rsp,
         world_arg,
         gazebo,
         spawn_entity,
-        ros_gz_bridge
+        ros_gz_bridge,
+        ros_gz_image_bridge,
     ])
