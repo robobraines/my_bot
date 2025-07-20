@@ -20,7 +20,7 @@ def generate_launch_description():
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'false'}.items()
+                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
     default_world = os.path.join(
@@ -67,12 +67,26 @@ def generate_launch_description():
         arguments=["/camera/image_raw"],
     )
 
+    diff_drive_spawner = Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["diff_cont"],
+    )
+
+    joint_broad_spawner = Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["joint_broad"],
+    )
+    
     # Launch them all!
     return LaunchDescription([
         rsp,
         world_arg,
         gazebo,
         spawn_entity,
+        diff_drive_spawner,
+        joint_broad_spawner,
         ros_gz_bridge,
         ros_gz_image_bridge,
     ])
