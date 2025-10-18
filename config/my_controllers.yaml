@@ -20,7 +20,7 @@ diff_cont:
     wheel_separation: 0.150
     wheel_radius: 0.03
 
-    # use_stamped_vel: false
+    use_stamped_vel: true
 
     # open_bloop: false
 
