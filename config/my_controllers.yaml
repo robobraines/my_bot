@@ -22,39 +22,39 @@ diff_cont:
 
     use_stamped_vel: true
 
-    open_loop: false
+    # open_loop: false
 
     # wheels_per_side: x
     # wheel_separation_multiplier: x
     # left_wheel_radius_multiplier: x
     # right_wheel_radius_multiplier: x
 
-    odom_frame_id: odom
+    # odom_frame_id: odom
     # pose_covariance_diagnol: x
     # twist_covariance_diagnol: x
-    enable_odom_tf: true
+    # enable_odom_tf: true
 
-    cmd_vel_timeout: 1.0
-    publish_limited_velocity: true
-    velocity_rolling_window_size: 10
+    # cmd_vel_timeout: 1.0
+    # publish_limited_velocity: true
+    # velocity_rolling_window_size: 10
 
-    #linear.x.has_velocity_limits: true
-    #linear.x.has_acceleration_limits: true
+    # linear.x.has_velocity_limits: true
+    # linear.x.has_acceleration_limits: true
     # linear.x.has_jerk_limits: false
-    linear.x.max_velocity: 1.5
-    linear.x.min_velocity: -1.5
-    linear.x.max_acceleration: 4.0
+    # linear.x.max_velocity: 1.5
+    # linear.x.min_velocity: -1.5
+    # linear.x.max_acceleration: 4.0
     # linear.x.min_acceleration: NAN
     # linear.x.max_jerk: NAN
     # linear.x.min_jerk: NAN
 
-    #angular.z.has_velocity_limits: true
-    #angular.z.has_acceleration_limits: true
+    angular.z.has_velocity_limits: true
+    angular.z.has_acceleration_limits: true
     # angular.z.has_jerk_limits: false
-    angular.z.max_velocity: 1.2
-    angular.z.min_velocity: -1.2
-    angular.z.max_acceleration: 5.0
-    # angular.z.min_acceleration: NAN
+    angular.z.max_velocity: 4.0
+    angular.z.min_velocity: -4.0
+    angular.z.max_acceleration: 8.0
+    angular.z.min_acceleration: -8.0
     # angular.z.max_jerk: NAN
     # angular.z.min_jerk: NAN
 # joint_broad:
